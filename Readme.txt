@@ -1,1 +1,1 @@
-Implementing algorithms and datastructures in C#, Java and JavaScript.
+Implementing algorithms and data structures in C# and Java.
