@@ -1,1 +1,1 @@
-Different Algorithms and Data Structure Implementation in .Net and Java.
+Implementing algorithms and datastructures in C#, Java and JavaScript.
