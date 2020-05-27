@@ -28,15 +28,16 @@ public class LinkedList {
 		System.out.println("second Sorted List:");
 		list2.printList();
 
-		list1.head = mergeSrotedLinkedList(list1.head, list2.head);
+		//list1.head = mergeSrotedLinkedList(list1.head, list2.head);
 
+		list1.head = mergeSrotedLinkedList_method2(list1.head, list2.head);
 		System.out.println("Merged Sorted List:");
 		list1.printList();
 
 	}
 
 	/*
-	 * Given: Two Sorted Linked List
+	 * Method 1. Given: Two Sorted Linked List.
 	 */
 	private static Node mergeSrotedLinkedList(Node list1_head, Node list2_head) {
 
@@ -76,7 +77,7 @@ public class LinkedList {
 	}
 
 	/*
-	 * Method to print the LinkedList
+	 * Method to print the Linked List.
 	 */
 	private void printList() {
 		Node n = head;
@@ -85,6 +86,28 @@ public class LinkedList {
 			n = n.next;
 		}
 	}
+
+	/*
+	 * Method 2. Given: Two Sorted Linked List. About: This method uses recursion.
+	 */
+	private static Node mergeSrotedLinkedList_method2(Node list1_head, Node list2_head) {
+
+		if (list1_head == null) {
+			return list2_head;
+		}
+		if (list2_head == null) {
+			return list1_head;
+		}
+
+		if (list1_head.data <= list2_head.data) {
+			list1_head.next = mergeSrotedLinkedList_method2(list1_head.next, list2_head);
+			return list1_head;
+		} else {
+			list2_head.next = mergeSrotedLinkedList_method2(list1_head, list2_head.next);
+			return list2_head;
+		}
+	}
+
 }
 
 class Node {
